@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './Todo.css';
+
 import { toDos } from './data';
 import TodoList from './components/TodoList';
 import TodoForm from './components/TodoForm';
