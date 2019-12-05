@@ -31,6 +31,10 @@ class App extends React.Component {
     })})
   }
 
+  clearItem = (todoClear) => {
+    
+  }
+
   addItem = (todoText) => {
     const newTodo = {
       task: todoText,
@@ -49,7 +53,7 @@ class App extends React.Component {
       <div className='App'>
         <div className='header'>
           <h2>{this.state.message}</h2>
-          <TodoForm addItem={this.addItem} />
+          <TodoForm addItem={this.addItem} clearItem={this.clearItem} />
         </div>
         <TodoList toDos={this.state.toDos} toggleItem={this.toggleItem} />
       </div>
