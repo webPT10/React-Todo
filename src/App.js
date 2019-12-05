@@ -11,11 +11,24 @@ class App extends React.Component {
   constructor(){
     super();
     this.state = {
-      message: 'From App this.state',
+      message: 'To-Do List',
       toDos: toDos
     };
   }
   
+  toggleItem = todoId => {
+    console.log('Here!', todoId)
+    this.setState({ toDos: this.state.toDos.map(item => {
+      if (todoId === item.id) {
+        return {
+          ...item,
+          completed: !item.completed
+        };
+      }
+      return item;
+    })})
+  }
+
   addItem = (todoText) => {
     const newTodo = {
       task: todoText,
@@ -36,7 +49,7 @@ class App extends React.Component {
           <h2>{this.state.message}</h2>
           <TodoForm addItem={this.addItem} />
         </div>
-        <TodoList toDos={this.state.toDos} />
+        <TodoList toDos={this.state.toDos} toggleItem={this.toggleItem} />
       </div>
     );
   }
