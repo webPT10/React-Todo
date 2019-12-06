@@ -5,7 +5,7 @@ class TodoForm extends React.Component {
         super(props);
         this.state = {
             todoText: '',
-            status: ''
+            completed: ''
         }
     }
     changeHandler = event => {
@@ -19,7 +19,7 @@ class TodoForm extends React.Component {
     clearHandler = event => {
         event.preventDefault();
         this.props.clearItem();
-
+        this.setState({completed: ''})
     }
 
     render(){
@@ -33,7 +33,6 @@ class TodoForm extends React.Component {
                         onChange={this.changeHandler} 
                     />
                     <button className='addBtn' type='submit'>Add Todo</button>
-                    
                 </form>
                 <form onSubmit={this.clearHandler}>
                     <button className='clearBtn' type='submit'>Clear Completed</button>

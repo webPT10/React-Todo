@@ -31,7 +31,12 @@ class App extends React.Component {
     })})
   }
 
-  clearItem = (todoClear) => {
+  clearItem = event => {
+    this.setState ({
+      toDos: this.state.toDos.filter(item => {
+        return !item.completed;
+      })
+    });
     
   }
 
